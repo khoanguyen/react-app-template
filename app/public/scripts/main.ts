@@ -1,1 +1,0 @@
-export const MY_STRING = "Test String";

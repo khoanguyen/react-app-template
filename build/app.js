@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -7,9 +10,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var HTTP = __importStar(require("http"));
-var main_1 = require("./public/scripts/main");
-var http = HTTP.createServer(function (request, response) {
-    response.writeHead(200, { 'Content-Type': 'text/html' });
-    response.end("\n    <html><body>\n      <h1>Hello, world!</h1>\n      You asked for: " + request.url + " - " + main_1.MY_STRING + "\n      <p>\n        Everything good? Lets get going. \n      </p>\n      <p>\n        App was moved, but it's not refreshed.\n        What are you thinking ?\n        Cool, no nead to compile!!!:D\n      </p>\n    </body></html>");
-}).listen(3333);
+var express_1 = __importDefault(require("express"));
+var path = __importStar(require("path"));
+var app = express_1.default();
+console.log(path.join(__dirname, 'public'));
+app.use(express_1.default.static(path.join(__dirname, 'public')));
+app.get('/', function (req, res, next) {
+    res.send('Text');
+});
+app.listen(3333);
