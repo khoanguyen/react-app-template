@@ -1,25 +1,31 @@
 import { FormEvent } from "react";
 
+/**
+ * Provides utility methods
+ */
 export interface IUtil {
-    abortEvent(evt: FormEvent<HTMLFormElement>): boolean
+
+    /**     
+     * Methods for aborting an event fired from HTML element
+     * This method should be used as an event handler
+     * 
+     * @param evt 
+     */
+    abortEvent(evt: any): boolean
 }
 
 /**
  * Provides utility methods
  * @class
  */
-class Util implements IUtil{
-
-    /**
-     * Functions for aborting event
-     * @param {Event} evt 
-     */
-    abortEvent(evt: FormEvent<HTMLFormElement>): boolean {
+class Util implements IUtil {
+    
+    abortEvent(evt: any): boolean {
         evt.preventDefault();
         return false;
     }
 }
 
-const util = new Util();
+const util: IUtil = new Util();
 
 export default util;
