@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "clean": "node ./tools/clean.js",
-    "copy" : "node ./tools/copy.js",
-    "compile" : "tsc",
-    "build": "run-s clean compile copy",    
+    "copy": "node ./tools/copy.js",
+    "webpack": "webpack",
+    "compile": "tsc",
+    "lessc": "lessc ./src/public/css/main.less ./compile/public/css/main.css",
+    "build": "run-s clean compile lessc webpack copy",
     "test": "test",
-    "start": "node build/app.js",
-    "startDev": "ts-node-dev --respawn --transpileOnly ./app/app.ts"
+    "start": "node dist/app.js",
+    "start-ts": "ts-node-dev --respawn --transpileOnly ./app/app.ts"
   },
   "repository": {
     "type": "git",
@@ -28,17 +30,26 @@
     "@types/node": "^11.10.4",
     "@types/react": "^16.8.6",
     "@types/react-dom": "^16.8.2",
+    "@types/react-router": "^4.4.5",
+    "@types/react-router-dom": "^4.3.1",
     "@types/shelljs": "^0.8.3",
+    "less": "^3.9.0",
     "nodemon": "^1.18.10",
     "npm-run-all": "^4.1.5",
     "shelljs": "^0.8.3",
+    "ts-loader": "^5.3.3",
     "ts-node-dev": "^1.0.0-pre.32",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
   },
   "dependencies": {
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
   }
 }

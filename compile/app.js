@@ -13,9 +13,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var path = __importStar(require("path"));
 var app = express_1.default();
-console.log(path.join(__dirname, 'public'));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(express_1.default.static(path.join(__dirname, 'public')));
-app.get('/', function (req, res, next) {
-    res.send('Text');
+app.get('/*', function (req, res, next) {
+    res.render('home');
 });
 app.listen(3333);

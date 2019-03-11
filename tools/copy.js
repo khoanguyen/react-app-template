@@ -1,10 +1,17 @@
 const shelljs = require('shelljs');
 
-shelljs.cp('app/public/*', 'build/public/');
+shelljs.cp('compile/*.js', 'dist/');
 
-//shelljs.cp('app/public/js/*.js', 'build/public/js/');
-shelljs.mkdir('build/public/js/jquery');
-shelljs.cp('app/public/js/jquery/*.js', 'build/public/js/jquery/');
+shelljs.mkdir('dist/public');
+shelljs.mkdir('dist/public/js');
+shelljs.mkdir('dist/public/css');
 
-shelljs.mkdir('build/public/js/css/');
-shelljs.cp('app/public/css/*', 'build/public/css/');
+// css
+shelljs.cp('compile/public/css/*', 'dist/public/css');
+
+// view
+shelljs.mkdir('dist/views');
+shelljs.cp('src/views/*.*', 'dist/views');
+
+// static files
+shelljs.cp('src/public/*.*', 'dist/public');

@@ -1,5 +1,4 @@
 ;(function() {
-    const shell = require('shelljs');    
-    
-    shell.rm('-rf', 'build/*');
+    const shell = require('shelljs');        
+    shell.rm('-rf', 'dist/*');
 })();
