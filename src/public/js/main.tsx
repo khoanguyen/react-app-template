@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Student } from './model';
-import $ from 'jquery';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './modules/home/home';
 
