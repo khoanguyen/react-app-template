@@ -1,13 +1,16 @@
 import { ILog } from "./common/log";
 import winston from 'winston';
 import moment from 'moment';
+import ioc from "./common/ioc";
+import { IEnv, ENV_DEVELOPMENT } from "./common/env";
+import { SERVICE_ID } from "./common/identifiers";
 
 export default class ServerLogger implements ILog {
 
     private _infoLogger: winston.Logger;
-    private _errorLogger: winston.Logger;  
+    private _errorLogger: winston.Logger;
 
-    constructor() {        
+    constructor() {
 
         this._infoLogger = winston.createLogger(
             {
@@ -50,15 +53,17 @@ export default class ServerLogger implements ILog {
     }
 
     info(...obj: any[]): void {
-        this._infoLogger.info({message: obj[0], timestamp: this.getCurrentTime()});
+        this._infoLogger.info({ message: obj[0], timestamp: this.getCurrentTime() });
     }
 
     debug(...obj: any[]): void {
-        this._infoLogger.debug({message: obj[0], timestamp: this.getCurrentTime()});
+        if (ioc.resolve<IEnv>(SERVICE_ID.IEnv).nodeEnv === ENV_DEVELOPMENT) {
+            this._infoLogger.debug({ message: obj[0], timestamp: this.getCurrentTime() });
+        }
     }
 
     error(...obj: any[]): void {
-        this._errorLogger.error({message: obj[0], timestamp: this.getCurrentTime()});
+        this._errorLogger.error({ message: obj[0], timestamp: this.getCurrentTime() });
     }
 
     private getCurrentTime() {
