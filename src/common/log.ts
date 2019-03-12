@@ -1,15 +1,19 @@
+import { ENV_PRODUCTION, IEnv } from "./env";
+import ioc from "./ioc";
+import { SERVICE_ID } from "./identifiers";
+
 export interface ILog {
     /**
      * Prints given input to console
      * @param obj 
      */
-    log(...obj: any[]): void;
+    info(...obj: any[]): void;
 
     /**
      * Prints trace of given input to console
      * @param obj 
      */
-    trace(...obj: any[]): void;
+    debug(...obj: any[]): void;
 
     /**
      * Prints error to console
@@ -22,24 +26,27 @@ class Log implements ILog {
     
     constructor() { }
 
-    log(...obj: any[]) {
-        const l_env: string = process.env.NODE_ENV || "development";
-
-        if (l_env.trim().toLowerCase() !== 'production') console.log(...obj);
+    info(...obj: any[]) {
+        this._write(console.log, ...obj);
     }
 
-    trace(...obj: any[]) {
-        const l_env: string = process.env.NODE_ENV || "development";
-
-        if (l_env.trim().toLowerCase() !== 'production') console.trace(...obj);
+    debug(...obj: any[]) {
+        this._write(console.trace, ...obj);
     }
 
     error(...obj: any[]): void {
-        const l_env: string = process.env.NODE_ENV || "development";
+        this._write(console.error, ...obj);        
+    }
 
-        if (l_env.trim().toLowerCase() !== 'production') console.error(...obj);
+    /**     
+     * @param writer 
+     * @param obj 
+     */
+    private _write(writer: (...obj: any[]) => void, ...obj: any[]) {
+        const env  = ioc.resolve<IEnv>(SERVICE_ID.IEnv);
+        if (env.nodeEnv !== ENV_PRODUCTION) writer(...obj);
     }
 }
 
-const Logger: ILog = new Log();
-export default Logger;
+const logger: ILog = new Log();
+export default logger;

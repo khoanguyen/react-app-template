@@ -1,7 +1,11 @@
 const shelljs = require('shelljs');
 
+// server
 shelljs.cp('compile/*.js', 'dist/');
+shelljs.cp('-r', 'compile/common', 'dist/common');
 
+
+//client
 shelljs.mkdir('dist/public');
 shelljs.mkdir('dist/public/js');
 shelljs.mkdir('dist/public/css');

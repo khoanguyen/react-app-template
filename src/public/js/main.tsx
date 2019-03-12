@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './modules/home/home';
-import * as Services from './lib/services';
+import Services from './lib/services';
 
 interface IAppProps {
 }
@@ -37,8 +37,8 @@ try {
         </BrowserRouter>,
         document.getElementById('divMainBody')
     );
-    Services.Logger.log("App started");
+    Services.logger.info("App started");
 } catch (error) {
-    Services.Logger.error("Failed to start");
-    Services.Logger.error(error);
+    Services.logger.error("Failed to start");
+    Services.logger.error(error);
 }
