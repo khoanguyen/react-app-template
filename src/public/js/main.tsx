@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './modules/home/home';
 import Services from './lib/services';
+import { connect, Provider } from 'react-redux';
+
+const store = Services.store.currentStore;
 
 interface IAppProps {
 }
@@ -14,6 +17,7 @@ class App extends React.Component<IAppProps, IAppState> {
 
     constructor(props: any) {
         super(props);
+        document.title = props.state.app.name;
     }
 
     render() {
@@ -25,16 +29,28 @@ class App extends React.Component<IAppProps, IAppState> {
     }
 }
 
+const ConnectedApp = connect(state => {
+    return {
+        state
+    }
+}, dispatch => {
+    return {
+        dispatch
+    }
+})(App);
+
 try {
 
     ReactDOM.render(
-        <BrowserRouter>
-            <App>
-                <Switch>
-                    <Route exact path="/" render={props => <Home {...props} />} />
-                </Switch>
-            </App>
-        </BrowserRouter>,
+        <Provider store={store}>
+            <BrowserRouter>
+                <ConnectedApp>
+                    <Switch>
+                        <Route exact path="/" render={props => <Home {...props} />} />
+                    </Switch>
+                </ConnectedApp>
+            </BrowserRouter>
+        </Provider >,
         document.getElementById('divMainBody')
     );
     Services.logger.info("App started");
