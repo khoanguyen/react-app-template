@@ -4,6 +4,7 @@ import moment from 'moment';
 import ioc from "./common/ioc";
 import { IEnv, ENV_DEVELOPMENT } from "./common/env";
 import { SERVICE_ID } from "./common/identifiers";
+import * as path from 'path';
 
 export default class ServerLogger implements ILog {
 
@@ -17,7 +18,7 @@ export default class ServerLogger implements ILog {
                 transports: [
                     new winston.transports.File({
                         level: 'info',
-                        filename: './logs/info.log',
+                        filename: path.join(__dirname, 'logs/info.log'),
                         handleExceptions: true,
                         maxsize: 5242880, //5MB
                         maxFiles: 15,
@@ -37,7 +38,7 @@ export default class ServerLogger implements ILog {
                 transports: [
                     new winston.transports.File({
                         level: 'error',
-                        filename: './logs/error.log',
+                        filename: path.join(__dirname, 'logs/error.log'),
                         handleExceptions: true,
                         maxsize: 5242880, //5MB
                         maxFiles: 15,
