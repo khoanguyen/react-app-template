@@ -6,9 +6,11 @@
     npm run build
 
 # Folder structure
-    /src                    &lt;- Server code
-    -- /public              &lt;- Client code
-        --/ css             &lt;- css files
-        --/ js              &lt;- external JS library
-        --/ ts              &lt;- Typescript code
-        --/ less            &lt;- LESS files
+    /src                    <- Server code, .ts files the root in this folder
+    -- / common             <- Common Typescript/Javasciprt files shared both by client and server
+    -- / public             <- Client code
+        --/ css             <- css files
+        --/ js              <- external JS library
+        --/ ts              <- Typescript code
+        --/ less            <- LESS files
+    -- / views              <- EJS views
