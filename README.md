@@ -1,6 +1,6 @@
-#Recommended Extension for VsCode
+# Recommended Extension for VsCode
 - *Easy LESS*: for compiling less file on Save
 
-#Build
+# Build
 
     npm run build
