@@ -6,9 +6,8 @@
   "scripts": {
     "clean": "node ./tools/clean.js",
     "copy": "node ./tools/copy.js",
-    "webpack": "webpack",
+    "webpack": "webpack",    
     "compile": "tsc",
-    "lessc": "lessc ./src/public/css/main.less ./compile/public/css/main.css",
     "build": "run-s clean compile copy webpack",
     "test": "test",
     "start": "node dist/app.js",

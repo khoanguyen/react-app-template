@@ -30,7 +30,7 @@ class Home extends React.Component<IHomeProps, any> {
             <div>
                 <label>Random Number: </label><b>{state.randomNumber}</b>
                 <br />
-             <button className='my-btn' onClick={this._onRandomizeClicked}>Randomize</button>
+             <button className='my-btn' onClick={this._onRandomizeClicked}>Randomize</button>           
             </div>
         </div>;
     }

@@ -1,5 +1,3 @@
-import './../less/main.less';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -25,7 +23,7 @@ class App extends React.Component<IAppProps, IAppState> {
 
     render() {
         return (
-            <div className='app-main'>
+            <div className='app-main'>            
                 {this.props.children}
             </div>
         );

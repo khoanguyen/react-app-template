@@ -1,6 +1,7 @@
 (function() {
   const shelljs = require("shelljs");
 
+  shelljs.mkdir("dist");
   shelljs.mkdir("dist/public");
 
   // server
