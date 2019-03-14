@@ -13,7 +13,8 @@ const env = ioc.resolve<IEnv>(SERVICE_ID.IEnv);
 
 if (env.nodeEnv === ENV_TEST) {
     // IoC for test
-    // It can be external let the test script init it
+    // It can be external 
+    // Let the test script init it
 } else {
     ioc.bind(SERVICE_ID.ILog, logger);
     ioc.bind(SERVICE_ID.IUtil, util);

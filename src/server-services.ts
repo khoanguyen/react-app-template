@@ -11,7 +11,8 @@ ioc.bind(SERVICE_ID.IEnv, env);
 
 if (env.nodeEnv === ENV_TEST) {
     // IoC for test
-    // It can be external let the test script init it
+    // It can be external
+    // Let the test script init it
 } else {
     ioc.bind(SERVICE_ID.ILog, new ServerLogger());    
 }
