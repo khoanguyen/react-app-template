@@ -1,3 +1,5 @@
+import './../less/main.less';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -18,6 +20,7 @@ class App extends React.Component<IAppProps, IAppState> {
     constructor(props: any) {
         super(props);
         document.title = props.state.app.name;
+        
     }
 
     render() {
