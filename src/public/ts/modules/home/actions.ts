@@ -4,7 +4,7 @@ import Services from "../../lib/services";
 const moduleName = "Home";
 
 export const HOME_ACTIONS = {
-    HOME_RANDOMIZE: 'HOME_RANDOMIZE'
+    RANDOMIZE: 'RANDOMIZE'
 }
 
 export interface IHomeActionFactory {
@@ -22,7 +22,7 @@ class HomeActionFactory extends ActionFactory implements IHomeActionFactory {
    
     randomize(factor: number): IRandomizeAction {
         Services.logger.info("Randomizing a new number");
-        return this.createAction(HOME_ACTIONS.HOME_RANDOMIZE, { factor });
+        return this.createAction(HOME_ACTIONS.RANDOMIZE, { factor });
     }
 }
 

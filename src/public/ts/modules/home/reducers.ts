@@ -12,10 +12,14 @@ const initial: IHomeState = {
 }
 
 const reducers: { [key: string]: (state: IHomeState, action: any) => IHomeState } = {
-    [HOME_ACTIONS.HOME_RANDOMIZE]: randomize
+    [HOME_ACTIONS.RANDOMIZE]: randomize
 }
 
-
+/**
+ * Home module reducer
+ * @param state 
+ * @param action 
+ */
 export default function homeReducer(state = initial, action: IAppAction) {
     if (reducers[action.type]) return reducers[action.type](state, action);
     return state;
@@ -26,7 +30,7 @@ export default function homeReducer(state = initial, action: IAppAction) {
  */
 
  /**
-  * HOME_RANDOMIZE reducer
+  * RANDOMIZE reducer
   * 
   * @param state 
   * @param action 
