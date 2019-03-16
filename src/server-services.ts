@@ -4,6 +4,8 @@ import ServerEnv from "./server-env";
 import { IEnv, ENV_TEST } from "./common/env";
 import { ILog } from "./common/log";
 import ServerLogger from "./server-logger";
+import serverConfigService from "./server-config";
+import { IConfigService } from "./common/config";
 
 // Init IoC
 const env : IEnv = new ServerEnv();
@@ -14,14 +16,14 @@ if (env.nodeEnv === ENV_TEST) {
     // It can be external
     // Let the test script init it
 } else {
-    ioc.bind(SERVICE_ID.ILog, new ServerLogger());    
+    ioc.bind(SERVICE_ID.ILog, new ServerLogger());
+    ioc.bind(SERVICE_ID.IConfig, serverConfigService);    
 }
-
-const ioc_logger = ioc.resolve<ILog>(SERVICE_ID.ILog);
 
 const ServerServices = {
     env, 
-    logger: ioc_logger
+    logger: ioc.resolve<ILog>(SERVICE_ID.ILog),
+    config : ioc.resolve<IConfigService>(SERVICE_ID.IConfig)
 };
 
 export default ServerServices;
