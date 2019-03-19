@@ -1,5 +1,5 @@
-import { IConfigService } from "./common/config";
-import { ENV_DEVELOPMENT } from "./common/env";
+import { IConfigService } from "../common/config";
+import { ENV_DEVELOPMENT } from "../common/env";
 
 const env = (process.env.NODE_ENV || ENV_DEVELOPMENT).toLowerCase();
 

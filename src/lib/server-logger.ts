@@ -1,9 +1,9 @@
-import { ILog } from "./common/log";
+import { ILog } from "../common/log";
 import winston from 'winston';
 import moment from 'moment';
-import ioc from "./common/ioc";
-import { IEnv, ENV_DEVELOPMENT } from "./common/env";
-import { SERVICE_ID } from "./common/identifiers";
+import ioc from "../common/ioc";
+import { IEnv, ENV_DEVELOPMENT } from "../common/env";
+import { SERVICE_ID } from "../common/identifiers";
 import * as path from 'path';
 
 export default class ServerLogger implements ILog {

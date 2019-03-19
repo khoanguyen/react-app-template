@@ -1,11 +1,11 @@
-import ioc from "./common/ioc";
-import { SERVICE_ID } from "./common/identifiers";
+import ioc from "../common/ioc";
+import { SERVICE_ID } from "../common/identifiers";
 import ServerEnv from "./server-env";
-import { IEnv, ENV_TEST } from "./common/env";
-import { ILog } from "./common/log";
+import { IEnv, ENV_TEST } from "../common/env";
+import { ILog } from "../common/log";
 import ServerLogger from "./server-logger";
 import serverConfigService from "./server-config";
-import { IConfigService } from "./common/config";
+import { IConfigService } from "../common/config";
 
 // Init IoC
 const env : IEnv = new ServerEnv();

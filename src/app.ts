@@ -1,7 +1,7 @@
 import express from 'express';
 import * as path from 'path';
-import ServerServices from './server-services';
-import { clientConfig } from './client-config-middleware';
+import ServerServices from './lib/server-services';
+import { clientConfig } from './lib/client-config-middleware';
 
 const app = express();
 
