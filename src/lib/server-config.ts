@@ -3,7 +3,7 @@ import { ENV_DEVELOPMENT } from "../common/env";
 
 const env = (process.env.NODE_ENV || ENV_DEVELOPMENT).toLowerCase();
 
-const config = require(`./conf/server.${env}.js`);
+const config = require(`./../conf/server.${env}.js`);
 
 class ServerConfigService implements IConfigService {
 

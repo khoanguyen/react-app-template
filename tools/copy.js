@@ -10,6 +10,8 @@
   shelljs.cp("-rf", "src/views", "dist/views");
   shelljs.cp("-rf", "src/public/js", "dist/public/js");
   shelljs.cp("-rf", "src/public/css", "dist/public/css");
+  shelljs.cp("-rf", "src/public/fonts", "dist/public/fonts");
+  shelljs.cp("-rf", "src/public/images", "dist/public/images");
 
   // static files
   shelljs.cp("src/public/*.*", "dist/public");
